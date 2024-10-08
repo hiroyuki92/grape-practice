@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGrapeorderTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateGrapeorderTable extends Migration
      */
     public function up()
     {
-        Schema::create('grapeorder', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->
+            $table->string('name');
+            $table->integer('quantity');
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateGrapeorderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grapeorder');
+        Schema::dropIfExists('products');
     }
 }

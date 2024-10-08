@@ -1,0 +1,159 @@
+.header {
+    background: purple;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px 15px;
+    max-width: 1230px;
+}
+
+.header-utilities {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.product-form__content{
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.product-form__heading{
+    margin: 50px 0;
+    border-bottom: 1px solid #ddd;
+    font-family: 'メイリオ',
+    'Meiryo',
+    'Hiragino Kaku Gothic ProN',
+    'ヒラギノ角ゴ ProN W3',
+    sans-serif;
+}
+
+.form{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form__group{
+    width: 100%;
+}
+
+.form__group-title{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.form__label{
+    width: 30%;
+    font-size: 20px;
+    margin: 5px 10px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.form__group-content{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.form__group-text{
+    width: 30%;
+    margin: 5px 10px;
+    text-align: center;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.form__group-text_input{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+}
+
+.form__group__registration-button{
+    margin: 20px;
+    text-align: center;
+}
+
+.form__group__registration-button-submit{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.product-table{
+    margin: 30px auto;
+    max-width: 1230px;
+}
+
+.product-table__inner{
+    width: 100%;
+}
+
+.product-table__row-title {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.product-table__header{
+    font-size: 20px;
+    text-align: left;
+    padding: 20px 0;
+}
+
+.product-table__item{
+    display: flex;
+    width: 70%;
+    margin: 30px auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.update-form{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.update-form__item-input{
+    font-size: 20px;
+    text-align: left;
+    padding:5px auto;
+    margin-left: 20%;
+    outline: none;
+    border: none;
+}
+
+.update-form__quantity-input,
+.update-form__price-input{
+    width: 50%;
+    padding:5px 20px;
+    font-size: 20px;
+    margin-left: 50%;
+    outline: none;
+    border: none;
+    text-align: right;
+}
+
+.update-form__quantity-unit,
+.update-form__price-unit{
+    font-size: 20px;
+}

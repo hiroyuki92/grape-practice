@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('/', [GrapeorderController::class, 'index']);
 Route::get('/products', [ProductController::class, 'index']);
 Route::post('/products', [ProductController::class, 'store']);
+Route::patch('/products/update', [ProductController::class, 'update']);
+Route::delete('/products/delete', [ProductController::class, 'destroy']);

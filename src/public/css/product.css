@@ -21,6 +21,29 @@
     font-size: 24px;
 }
 
+.product__alert{
+    margin: 0 auto;
+}
+
+.product__alert--success{
+    padding: 10px 30px;
+    border-color:#badbcc;
+    background-color: #d1e7dd;
+    color:#0f5132;
+}
+
+.product__alert--danger{
+    padding: 20px 30px;
+    margin: 0 auto;
+    background-color: #f5c2c7;
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.product__alert--danger ul{
+    margin: 0;
+}
+
 .product-form__content{
     margin: 0 auto;
     padding: 30px 15px;
@@ -120,17 +143,38 @@
     padding: 20px 0;
 }
 
-.product-table__item{
+.product-table__row{
     display: flex;
-    width: 70%;
-    margin: 30px auto;
+    width: 100%;
+    align-items: center;
     border-bottom: 1px solid #ddd;
+}
+
+.product-table__item{
+    margin: 20px auto;
+    }
+.product-table__item:first-child{
+    width: 90%;
 }
 
 .update-form{
     display: flex;
     width: 100%;
-    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.update-form__item{
+    width: 40%;
+    line-height: 50%;
+    padding: 5px;
+}
+
+.update-form__quantity,
+.update-form__price{
+    display: flex;
+    padding: 5px;
+    font-size: 20px;
 }
 
 .update-form__item-input{
@@ -144,16 +188,43 @@
 
 .update-form__quantity-input,
 .update-form__price-input{
-    width: 50%;
-    padding:5px 20px;
+    text-align: right;
+    padding: 5px;
     font-size: 20px;
-    margin-left: 50%;
+    width: 50%;
     outline: none;
     border: none;
-    text-align: right;
 }
 
 .update-form__quantity-unit,
 .update-form__price-unit{
     font-size: 20px;
+}
+
+.update-form__button {
+    width: 100px;
+}
+
+.update-form__button-submit {
+    padding: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    background: #0000ff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.delete-form__button {
+    width: 100px;
+}
+
+.delete-form__button-submit {
+    padding: 5px;
+    width: 90%;
+    border: none;
+    border-radius: 3px;
+    background: #ff0000;
+    color: #fff;
+    cursor: pointer;
 }

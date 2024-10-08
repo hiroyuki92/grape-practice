@@ -18,6 +18,24 @@
         </div>
     </header>
 
+    <div class="product__alert">
+        @if(session('message'))
+        <div class="product__alert--success">
+            {{ session('message')}}
+        </div>
+        @endif
+
+        @if($errors->any())
+        <div class="product__alert--danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+    </div>
+
     <div class="product-form__content">
         <div class="product-form__heading">
             <h2>商品登録</h2>
@@ -54,18 +72,36 @@
                 @foreach ($products as $product)
                 <tr class="product-table__row">
                     <td class="product-table__item">
-                        <form class="update-form" action=/categories/update method="post">
+                        <form class="update-form" action=/products/update method="post">
+                        @method('PATCH')
+                        @csrf
                             <div class="update-form__item">
                                 <input class="update-form__item-input" type="text" name="name" value="{{ $product['name'] }}">
+                                <input type="hidden" name='id' value="{{ $product['id']}} ">
                             </div>
                             <div class="update-form__quantity">
                                 <input class="update-form__quantity-input type="number" name="quantity" value="{{ $product['quantity'] }}">
+                                <input type="hidden" name='id' value="{{ $product['id']}} ">
+                                <div class="update-form__quantity-unit">房</div>
                             </div>
-                            <div class="update-form__quantity-unit">房</div>
                             <div class="update-form__price">
                                 <input class="update-form__quantity-input type="number" name="price" value="{{ $product['price'] }}">
+                                <input type="hidden" name='id' value="{{ $product['id']}} ">
+                                <div class="update-form__price-unit">円</div>
                             </div>
-                            <div class="update-form__price-unit">円</div>
+                            <div class="update-form__button">
+                                <button class="update-form__button-submit" type="submit">更新</button>
+                            </div>
+                        </form>
+                    </td>
+                    <td class="product-table__item">
+                        <form class="delete-form" action="/products/delete" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <div class="delete-form__button">
+                                <input type="hidden" name="id" value="{{$product['id']}}">
+                                <button class="delete-form__button-submit" type="submit">削除</button>
+                            </div>
                         </form>
                     </td>
                 </tr>

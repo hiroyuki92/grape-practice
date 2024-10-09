@@ -40,13 +40,14 @@
         <div class="product-form__heading">
             <h2>商品登録</h2>
         </div>
-        <form class="form" action="/products" method="post">
+        <form class="form" action="/products" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label">商品名</span>
                     <span class="form__label">数量</span>
                     <span class="form__label">金額</span>
+                    <span class="form__label">商品画像</span>
                 </div>
                 <div class="form__group-content">
                     <div class="form__group-text">
@@ -57,6 +58,9 @@
                     </div>
                     <div class="form__group-text">
                         <input class="form__group-text_input"type="number" name="price" value="{{ old('price') }}" />
+                    </div>
+                    <div class="form__group-image">
+                        <input class="form__group-image_input"type="file" name="image" accept="image/*" value="{{ old('image') }}" />
                     </div>
                 </div>
                 <div class="form__group__registration-button">
@@ -72,7 +76,7 @@
                 @foreach ($products as $product)
                 <tr class="product-table__row">
                     <td class="product-table__item">
-                        <form class="update-form" action=/products/update method="post">
+                        <form class="update-form" action=/products/update method="post" enctype="multipart/form-data">
                         @method('PATCH')
                         @csrf
                             <div class="update-form__item">
@@ -85,9 +89,12 @@
                                 <div class="update-form__quantity-unit">房</div>
                             </div>
                             <div class="update-form__price">
-                                <input class="update-form__quantity-input type="number" name="price" value="{{ $product['price'] }}">
+                                <input class="update-form__quantity-input type="number" name="price" value="{{ number_format($product['price']) }}">
                                 <input type="hidden" name='id' value="{{ $product['id']}} ">
                                 <div class="update-form__price-unit">円</div>
+                            </div>
+                            <div class="update-form__image">
+                                <img src="{{ asset('storage/images/' . $product->img_path) }}" alt="{{ $product->name }}" width="200">
                             </div>
                             <div class="update-form__button">
                                 <button class="update-form__button-submit" type="submit">更新</button>

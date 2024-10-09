@@ -16,8 +16,20 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $product= $request->only(['name', 'quantity', 'price']);
-        Product::create($product);
+        $productData= $request->only(['name', 'quantity', 'price']);
+        $image = $request->file('image');
+
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->storeAs('images', $imageName, 'public');
+            $productData['image'] = $imageName;
+        }
+        Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantity' => $request->quantity,
+            'img_path' => $imageName,
+        ]);
         return redirect('/products')->with('message', '商品を登録しました');
     }
 
